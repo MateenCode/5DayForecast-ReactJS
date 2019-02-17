@@ -1,12 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Merriweather:100,200,300,300i,400,400i,700");
-@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
 
 .App {
   font-family: "Open Sans", serif;
-  background: linear-gradient(to right, #e67e22, #e74c3c);
+  background: white;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.search_bar {
+  margin: 0 auto;
+  padding-top: 2em;
+  width: 35em;
 }
