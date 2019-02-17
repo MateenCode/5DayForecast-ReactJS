@@ -1,33 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
-@import url(https://fonts.googleapis.com/css?family=Raleway+Dots);
-
-.App {
-  font-family: "Open Sans", serif;
-  background: linear-gradient(90deg, #7bd9fd, #f3a025);
-  height: 100vh;
-  text-align: center;
-  color: white;
-}
-
-.search-bar {
-  margin: 0 auto;
-  width: 40em;
-}
-
-/* ---- DISPLAY CODE ---- */
-
 .display-container {
   margin: 0 auto;
   background: #33495f;
   height: 30em;
   width: 40em;
+  border-radius: 0.2em;
 }
 
 .wrapper {
   width: 150px;
   height: 150px;
   position: absolute;
-  top: calc(50% - 170px);
+  top: calc(50% - 150px);
   left: calc(50% - 75px);
 }
 
@@ -363,7 +346,7 @@
   width: 150px;
   color: #fff;
   font-family: "Raleway Dots", cursive;
-  font-weight: 100;
+  font-weight: bold;
   font-size: 20px;
   text-align: center;
   opacity: 0;

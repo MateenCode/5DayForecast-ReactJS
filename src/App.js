@@ -1,6 +1,7 @@
 import React from "react";
-import "./App.css";
 import axios from "axios";
+import "./css/App.css";
+import { Container } from "reactstrap";
 import Form from "./components/Form";
 import Display from "./components/Display";
 
@@ -34,12 +35,27 @@ class App extends React.Component {
   };
 
   render() {
-    return (
-      <div className="App">
-        <Form getWeather={this.getWeather} />
-        <Display />
-      </div>
-    );
+    if (this.state.weatherList.length === 0) {
+      return (
+        <div className="App">
+          <Container>
+            <Form getWeather={this.getWeather} />
+            <Display />
+          </Container>
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          <Container>
+            <Form getWeather={this.getWeather} />
+            <Container>
+              <div className="display">hello</div>
+            </Container>
+          </Container>
+        </div>
+      );
+    }
   }
 }
 

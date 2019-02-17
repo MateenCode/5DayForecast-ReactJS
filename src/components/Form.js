@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { InputGroup, InputGroupAddon, Button, Input } from "reactstrap";
 import axios from "axios";
 import moment from "moment";
+import "../css/Form.css";
 
 export default class Form extends Component {
   state = {
@@ -49,7 +50,7 @@ export default class Form extends Component {
 
   render() {
     return (
-      <form className="search-bar  pt-5" onSubmit={this.handleSubmit}>
+      <form className="search-bar pt-5" onSubmit={this.handleSubmit}>
         <InputGroup className="search-group">
           <Input
             className="search-field"
@@ -59,7 +60,7 @@ export default class Form extends Component {
             placeholder="Enter City..."
           />
           <InputGroupAddon addonType="append">
-            <Button outline onSubmit={this.handleSubmit}>
+            <Button onSubmit={this.handleSubmit}>
               <i className="fas fa-search" />
             </Button>
           </InputGroupAddon>
