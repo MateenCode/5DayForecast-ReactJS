@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
-import Form from "./components/Form";
 import axios from "axios";
+import Form from "./components/Form";
+import Display from "./components/Display";
 
 class App extends React.Component {
   state = {
@@ -36,6 +37,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Form getWeather={this.getWeather} />
+        <Display />
       </div>
     );
   }

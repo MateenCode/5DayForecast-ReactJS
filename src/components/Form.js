@@ -49,16 +49,17 @@ export default class Form extends Component {
 
   render() {
     return (
-      <form className="search_bar" onSubmit={this.handleSubmit}>
-        <InputGroup>
+      <form className="search-bar  pt-5" onSubmit={this.handleSubmit}>
+        <InputGroup className="search-group">
           <Input
+            className="search-field"
             name="text"
             value={this.state.text}
             onChange={this.handleChange}
             placeholder="Enter City..."
           />
           <InputGroupAddon addonType="append">
-            <Button color="info" onSubmit={this.handleSubmit}>
+            <Button outline onSubmit={this.handleSubmit}>
               <i className="fas fa-search" />
             </Button>
           </InputGroupAddon>
