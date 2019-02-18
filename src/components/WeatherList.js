@@ -2,5 +2,10 @@ import React from "react";
 import { Container } from "reactstrap";
 
 export default function WeatherList(props) {
-  return <Container>Weatherlist</Container>;
+  console.log(props);
+  return (
+    <Container>
+      <div className="Weather_List">text</div>
+    </Container>
+  );
 }
