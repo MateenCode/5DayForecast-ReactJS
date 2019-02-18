@@ -4,6 +4,7 @@ import "./css/App.css";
 import { Container } from "reactstrap";
 import Form from "./components/Form";
 import Display from "./components/Display";
+import CurrentWeather from "./components/CurrentWeather";
 
 class App extends React.Component {
   state = {
@@ -49,9 +50,9 @@ class App extends React.Component {
         <div className="App">
           <Container>
             <Form getWeather={this.getWeather} />
-            <Container>
-              <div className="display">hello</div>
-            </Container>
+            <div className="display">
+              <CurrentWeather />
+            </div>
           </Container>
         </div>
       );
