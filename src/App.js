@@ -1,20 +1,31 @@
 import React from "react";
 import axios from "axios";
 import "./css/App.css";
-import { Container } from "reactstrap";
 import Form from "./components/Form";
 import Display from "./components/Display";
 import CurrentWeather from "./components/CurrentWeather";
 
 class App extends React.Component {
   state = {
-    currentWeather: {},
+    currentWeather: {
+      city: String,
+      country: String,
+      day: String,
+      date: Number,
+      img: String,
+      temp: Number,
+      description: String,
+      humidity: Number,
+      pressure: Number,
+      wind: Number
+    },
     weatherList: []
   };
 
   getWeather = (weather, city) => {
     const API_KEY = "74a0d65d1017ee174d9493121f8fca0b";
     const country = "US";
+
     this.setState({
       currentWeather: weather
     });

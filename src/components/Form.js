@@ -1,17 +1,24 @@
 import React, { Component } from "react";
-import { InputGroup, InputGroupAddon, Button, Input } from "reactstrap";
+import { InputGroup, InputGroupAddon, Button, Input, Alert } from "reactstrap";
 import axios from "axios";
 import moment from "moment";
 import "../css/Form.css";
 
 export default class Form extends Component {
   state = {
-    text: ""
+    text: "",
+    error: false
   };
 
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
+    });
+  };
+
+  onDismiss = () => {
+    this.setState({
+      error: !this.state.error
     });
   };
 
@@ -43,29 +50,44 @@ export default class Form extends Component {
           cityName
         );
         this.setState({
-          text: ""
+          text: "",
+          error: !this.state.error
+        });
+      })
+      .catch(() => {
+        this.setState({
+          error: !this.state.error
         });
       });
   };
 
   render() {
     return (
-      <form className="search-bar pt-5" onSubmit={this.handleSubmit}>
-        <InputGroup className="search-group">
-          <Input
-            className="search-field"
-            name="text"
-            value={this.state.text}
-            onChange={this.handleChange}
-            placeholder="Enter City..."
-          />
-          <InputGroupAddon addonType="append">
-            <Button color="dark" onSubmit={this.handleSubmit}>
-              <i className="fas fa-search" />
-            </Button>
-          </InputGroupAddon>
-        </InputGroup>
-      </form>
+      <React.Fragment>
+        <Alert
+          color="warning"
+          isOpen={this.state.error}
+          toggle={this.onDismiss}
+        >
+          Please Enter Your City
+        </Alert>
+        <form className="search-bar pt-5" onSubmit={this.handleSubmit}>
+          <InputGroup className="search-group">
+            <Input
+              className="search-field"
+              name="text"
+              value={this.state.text}
+              onChange={this.handleChange}
+              placeholder="Enter City..."
+            />
+            <InputGroupAddon addonType="append">
+              <Button color="dark" onSubmit={this.handleSubmit}>
+                <i className="fas fa-search" />
+              </Button>
+            </InputGroupAddon>
+          </InputGroup>
+        </form>
+      </React.Fragment>
     );
   }
 }
