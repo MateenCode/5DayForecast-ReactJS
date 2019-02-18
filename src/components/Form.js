@@ -60,7 +60,7 @@ export default class Form extends Component {
             placeholder="Enter City..."
           />
           <InputGroupAddon addonType="append">
-            <Button onSubmit={this.handleSubmit}>
+            <Button color="dark" onSubmit={this.handleSubmit}>
               <i className="fas fa-search" />
             </Button>
           </InputGroupAddon>

@@ -39,21 +39,17 @@ class App extends React.Component {
     if (this.state.weatherList.length === 0) {
       return (
         <div className="App">
-          <Container>
-            <Form getWeather={this.getWeather} />
-            <Display />
-          </Container>
+          <Form getWeather={this.getWeather} />
+          <Display />
         </div>
       );
     } else {
       return (
         <div className="App">
-          <Container>
-            <Form getWeather={this.getWeather} />
-            <div className="display">
-              <CurrentWeather />
-            </div>
-          </Container>
+          <Form getWeather={this.getWeather} />
+          <div className="display">
+            <CurrentWeather />
+          </div>
         </div>
       );
     }

@@ -1,6 +1,6 @@
 .display-container {
   margin: 0 auto;
-  background: #33495f;
+  background: #2d3436;
   height: 30em;
   width: 40em;
   border-radius: 0.2em;
@@ -75,13 +75,13 @@
 }
 
 .c_shadow:before {
-  background: #33495f !important;
+  background: #2d3436 !important;
 }
 
 .c_shadow ul li {
   width: 60px !important;
   height: 60px !important;
-  background: #33495f !important;
+  background: #2d3436 !important;
   float: left;
   position: absolute;
   bottom: -2px !important;
@@ -91,7 +91,7 @@
 .c_shadow ul li:nth-child(2) {
   width: 80px !important;
   height: 80px !important;
-  background: #33495f !important;
+  background: #2d3436 !important;
   float: left;
   border-radius: 360px;
   position: absolute;
@@ -102,7 +102,7 @@
 .c_shadow ul li:nth-child(3) {
   width: 70px !important;
   height: 70px !important;
-  background: #33495f !important;
+  background: #2d3436 !important;
   float: left;
   border-radius: 360px;
   position: absolute;
@@ -113,7 +113,7 @@
 .c_shadow ul li:last-child {
   width: 60px !important;
   height: 60px !important;
-  background: #33495f !important;
+  background: #2d3436 !important;
   float: left;
   border-radius: 360px;
   position: absolute;
@@ -185,7 +185,7 @@
 }
 
 .haze {
-  background: #33495f;
+  background: #2d3436;
   position: absolute;
   bottom: 50px;
   left: 0px;
