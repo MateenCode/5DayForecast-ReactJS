@@ -3,7 +3,7 @@
 
 .App {
   font-family: "Open Sans", serif;
-  background: linear-gradient(90deg, #faecbf, #fac666);
+  background: linear-gradient(90deg, #f7d794, #ff9f1a);
   height: 100vh;
   text-align: center;
   color: white;
@@ -15,4 +15,5 @@
   height: 30em;
   width: 40em;
   border-radius: 0.2em;
+  box-shadow: 0px 13px 40px -13px rgba(0, 0, 0, 0.75);
 }
