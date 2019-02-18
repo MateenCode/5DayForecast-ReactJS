@@ -1,18 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway+Dots);
+
 .display-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   background: #2d3436;
   height: 30em;
   width: 40em;
   border-radius: 0.2em;
   box-shadow: 0px 13px 40px -13px rgba(0, 0, 0, 0.75);
+  padding-bottom: 1em;
 }
 
 .wrapper {
   width: 150px;
   height: 150px;
   position: absolute;
-  top: calc(50% - 150px);
-  left: calc(50% - 75px);
 }
 
 .sun {
@@ -343,7 +348,6 @@
 
 .text ul li {
   position: absolute;
-  bottom: -50px;
   width: 150px;
   color: #fff;
   font-family: "Raleway Dots", cursive;

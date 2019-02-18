@@ -1,17 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
-@import url(https://fonts.googleapis.com/css?family=Raleway+Dots);
 
-.App {
+body {
   font-family: "Open Sans", serif;
+}
+.App {
   background: linear-gradient(90deg, #ffeaa7, #ff9f43);
   height: 100vh;
   text-align: center;
-  color: white;
 }
 
 .display {
   margin: 0 auto;
   background: #2d3436;
+  color: white;
   height: 30em;
   width: 40em;
   border-radius: 0.2em;

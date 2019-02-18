@@ -1,0 +1,18 @@
+.main {
+  text-align: left;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.header_key {
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+img {
+  height: 8em;
+}
+
+.temp_key {
+  font-size: 3.5em;
+}

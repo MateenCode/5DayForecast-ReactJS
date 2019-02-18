@@ -43,8 +43,9 @@ export default class Form extends Component {
             }.png`,
             temp: Math.round(res.data.main.temp),
             description: res.data.weather[0].description,
+            temp_max: Math.round(res.data.main.temp_max),
+            temp_min: Math.round(res.data.main.temp_min),
             humidity: res.data.main.humidity,
-            pressure: res.data.main.pressure,
             wind: Math.round(res.data.wind.speed)
           },
           cityName

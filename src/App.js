@@ -1,24 +1,15 @@
 import React from "react";
 import axios from "axios";
-import "./css/App.css";
+import { Container, Row } from "reactstrap";
+
 import Form from "./components/Form";
 import Display from "./components/Display";
 import CurrentWeather from "./components/CurrentWeather";
+import WeatherList from "./components/WeatherList";
 
 class App extends React.Component {
   state = {
-    currentWeather: {
-      city: String,
-      country: String,
-      day: String,
-      date: Number,
-      img: String,
-      temp: Number,
-      description: String,
-      humidity: Number,
-      pressure: Number,
-      wind: Number
-    },
+    currentWeather: {},
     weatherList: []
   };
 
@@ -59,7 +50,14 @@ class App extends React.Component {
         <div className="App">
           <Form getWeather={this.getWeather} />
           <div className="display">
-            <CurrentWeather />
+            <Container>
+              <Row>
+                <CurrentWeather weather={this.state.currentWeather} />
+              </Row>
+              <Row>
+                <WeatherList />
+              </Row>
+            </Container>
           </div>
         </div>
       );
