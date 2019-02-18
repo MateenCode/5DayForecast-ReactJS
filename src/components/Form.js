@@ -50,8 +50,7 @@ export default class Form extends Component {
           cityName
         );
         this.setState({
-          text: "",
-          error: !this.state.error
+          text: ""
         });
       })
       .catch(() => {
