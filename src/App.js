@@ -45,17 +45,12 @@ class App extends React.Component {
         `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=imperial`
       )
       .then(res => {
+        let data = res.data.list;
         this.setState({
-          weatherList: []
-        });
-        const data = res.data.list;
-        data.forEach(eachWeather => {
-          const weather = eachWeather.dt_txt.split(" ");
-          if (weather[1] === "15:00:00") {
-            this.setState({
-              weatherList: [...this.state.weatherList, eachWeather]
-            });
-          }
+          weatherList: data.filter(eachWeather => {
+            let weather = eachWeather.dt_txt.split(" ");
+            return weather[1] === "15:00:00";
+          })
         });
       });
   };
