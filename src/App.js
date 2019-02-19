@@ -54,7 +54,8 @@ class App extends React.Component {
               <Row>
                 <CurrentWeather weather={this.state.currentWeather} />
               </Row>
-              <Row>
+              <br />
+              <Row className="justify-content-center">
                 {this.state.weatherList.map(weatherItem => (
                   <div className="flex-column justify-content-center">
                     <WeatherList weatherItem={weatherItem} />
