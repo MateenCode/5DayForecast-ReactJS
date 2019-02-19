@@ -15,7 +15,6 @@ class App extends React.Component {
   };
 
   changeWeather = newWeather => {
-    console.log(newWeather);
     this.setState({
       currentWeather: {
         ...this.state.currentWeather,
@@ -46,6 +45,9 @@ class App extends React.Component {
         `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=imperial`
       )
       .then(res => {
+        this.setState({
+          weatherList: []
+        });
         const data = res.data.list;
         data.forEach(eachWeather => {
           const weather = eachWeather.dt_txt.split(" ");
