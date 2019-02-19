@@ -14,7 +14,11 @@
   margin-left: 1em;
 }
 
-img {
+.icon {
+  height: 7em;
+}
+
+.icon_list {
   height: 6em;
 }
 

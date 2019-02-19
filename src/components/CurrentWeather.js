@@ -18,7 +18,7 @@ export default function CurrentWeather(props) {
       </div>
       <Row>
         <Col>
-          <img src={props.weather.img} alt="" />
+          <img className="icon" src={props.weather.img} alt="" />
           <span className="temp_key">{props.weather.temp}°</span>
         </Col>
         <Col>

@@ -24,17 +24,17 @@ class App extends React.Component {
       .get(
         `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${API_KEY}&units=imperial`
       )
-      .then(res =>
-        this.setState({
-          weatherList: [
-            res.data.list[5],
-            res.data.list[13],
-            res.data.list[21],
-            res.data.list[28],
-            res.data.list[32]
-          ]
-        })
-      );
+      .then(res => {
+        const data = res.data.list;
+        data.forEach(eachWeather => {
+          const weather = eachWeather.dt_txt.split(" ");
+          if (weather[1] === "12:00:00") {
+            this.setState({
+              weatherList: [eachWeather, ...this.state.weatherList]
+            });
+          }
+        });
+      });
   };
 
   render() {
@@ -55,14 +55,9 @@ class App extends React.Component {
                 <CurrentWeather weather={this.state.currentWeather} />
               </Row>
               <br />
-              <Row className="justify-content-center">
+              <Row>
                 {this.state.weatherList.map(weatherItem => (
-                  <div
-                    key={weatherItem.dt}
-                    className="flex-column justify-content-center"
-                  >
-                    <WeatherList weatherItem={weatherItem} />
-                  </div>
+                  <WeatherList key={weatherItem.dt} weatherItem={weatherItem} />
                 ))}
               </Row>
             </Container>
