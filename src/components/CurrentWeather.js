@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
-import "../css/CurrentWeather.css";
+import "../css/Weather.css";
 
 export default function CurrentWeather(props) {
   return (

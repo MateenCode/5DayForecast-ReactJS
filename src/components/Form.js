@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { InputGroup, InputGroupAddon, Button, Input, Alert } from "reactstrap";
 import axios from "axios";
 import moment from "moment";
-import "../css/Form.css";
+import "../css/Weather.css";
 
 export default class Form extends Component {
   state = {

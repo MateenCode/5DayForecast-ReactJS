@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 
 import Form from "./components/Form";
 import Display from "./components/Display";
@@ -57,7 +57,10 @@ class App extends React.Component {
               <br />
               <Row className="justify-content-center">
                 {this.state.weatherList.map(weatherItem => (
-                  <div className="flex-column justify-content-center">
+                  <div
+                    key={weatherItem.dt}
+                    className="flex-column justify-content-center"
+                  >
                     <WeatherList weatherItem={weatherItem} />
                   </div>
                 ))}
