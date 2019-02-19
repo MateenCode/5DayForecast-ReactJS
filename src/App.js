@@ -28,7 +28,7 @@ class App extends React.Component {
         const data = res.data.list;
         data.forEach(eachWeather => {
           const weather = eachWeather.dt_txt.split(" ");
-          if (weather[1] === "12:00:00") {
+          if (weather[1] === "15:00:00") {
             this.setState({
               weatherList: [eachWeather, ...this.state.weatherList]
             });
@@ -50,7 +50,7 @@ class App extends React.Component {
         <div className="App">
           <Form getWeather={this.getWeather} />
           <div className="display">
-            <Container>
+            <Container fluid>
               <Row>
                 <CurrentWeather weather={this.state.currentWeather} />
               </Row>
