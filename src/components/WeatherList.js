@@ -4,7 +4,7 @@ import "../css/Weather.css";
 
 export default function WeatherList(props) {
   return (
-    <div className="weather">
+    <div className="weather" onClick={props.changeWeather}>
       <div className="weather_list">
         <Moment format="dddd">{props.weatherItem.dt_txt}</Moment>
         <br />
