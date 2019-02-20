@@ -36,6 +36,7 @@
 }
 
 .weather:hover {
+  cursor: pointer;
   border-radius: 0.125em;
   box-shadow: -1px 10px 29px 0px rgba(0, 0, 0, 0.8);
 }
