@@ -46,10 +46,11 @@ class App extends React.Component {
       )
       .then(res => {
         let data = res.data.list;
+        console.log(data);
         this.setState({
           weatherList: data.filter(eachWeather => {
             let weather = eachWeather.dt_txt.split(" ");
-            return weather[1] === "15:00:00";
+            return weather[1] === "21:00:00";
           })
         });
       });
