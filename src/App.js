@@ -46,7 +46,6 @@ class App extends React.Component {
       )
       .then(res => {
         let data = res.data.list;
-        console.log(data);
         this.setState({
           weatherList: data.filter(eachWeather => {
             let weather = eachWeather.dt_txt.split(" ");
