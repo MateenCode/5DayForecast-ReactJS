@@ -25,10 +25,9 @@ export default class Form extends Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
     const country = "US";
     const cityName = this.state.text;
-
+    event.preventDefault();
     axios
       .get(
         `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${country}&appid=${API_KEY}&units=imperial`
