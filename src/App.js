@@ -16,9 +16,9 @@ class App extends React.Component {
   };
 
   changeWeather = newWeather => {
-    this.setState({
+    this.setState(state => ({
       currentWeather: {
-        ...this.state.currentWeather,
+        ...state.currentWeather,
         day: moment(newWeather.dt_txt).format("dddd"),
         date: moment(newWeather.dt_txt).format("MMMM Do YYYY"),
         img: `http://openweathermap.org/img/w/${
@@ -31,7 +31,7 @@ class App extends React.Component {
         humidity: newWeather.main.humidity,
         wind: Math.round(newWeather.wind.speed)
       }
-    });
+    }));
   };
 
   getWeather = (weather, city) => {
@@ -56,14 +56,16 @@ class App extends React.Component {
       });
   };
 
-  // handleMap = () => {
-  //   this.setState(state => {
-
-  //   })
-  // };
+  handleMap = () => {
+    this.setState({
+      viewMap: true
+    });
+  };
 
   render() {
-    if (this.state.weatherList.length === 0) {
+    const { weatherList, viewMap, currentWeather } = this.state;
+
+    if (weatherList.length === 0) {
       return (
         <div className="App">
           <Form getWeather={this.getWeather} />
@@ -71,31 +73,40 @@ class App extends React.Component {
         </div>
       );
     } else {
-      return (
-        <div className="App">
-          <Form getWeather={this.getWeather} />
-          <div className="display">
-            <Container fluid>
-              <Row>
-                <CurrentWeather
-                  weather={this.state.currentWeather}
-                  handleMap={this.handleMap}
-                />
-              </Row>
-              <br />
-              <Row>
-                {this.state.weatherList.map(weatherItem => (
-                  <WeatherList
-                    key={weatherItem.dt}
-                    weatherItem={weatherItem}
-                    changeWeather={this.changeWeather.bind(this, weatherItem)}
-                  />
-                ))}
-              </Row>
-            </Container>
+      if (viewMap === true) {
+        return (
+          <div className="App">
+            <Form getWeather={this.getWeather} />
+            <div className="display" />
           </div>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div className="App">
+            <Form getWeather={this.getWeather} />
+            <div className="display">
+              <Container fluid>
+                <Row>
+                  <CurrentWeather
+                    weather={currentWeather}
+                    handleMap={this.handleMap}
+                  />
+                </Row>
+                <br />
+                <Row>
+                  {weatherList.map(weatherItem => (
+                    <WeatherList
+                      key={weatherItem.dt}
+                      weatherItem={weatherItem}
+                      changeWeather={this.changeWeather.bind(this, weatherItem)}
+                    />
+                  ))}
+                </Row>
+              </Container>
+            </div>
+          </div>
+        );
+      }
     }
   }
 }

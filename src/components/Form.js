@@ -114,6 +114,7 @@ export default class Form extends Component {
           <InputGroup className="search-group">
             <Input
               className="search-field"
+              autoComplete="off"
               name="text"
               value={this.state.text}
               onChange={this.handleChange}
