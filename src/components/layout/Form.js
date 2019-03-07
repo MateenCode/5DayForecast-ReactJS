@@ -3,7 +3,7 @@ import { InputGroup, InputGroupAddon, Button, Input, Alert } from "reactstrap";
 import { MyLocation } from "@material-ui/icons";
 import axios from "axios";
 import moment from "moment";
-import "../css/Weather.css";
+import "../../css/Weather.css";
 
 const API_KEY = "74a0d65d1017ee174d9493121f8fca0b";
 
@@ -105,7 +105,11 @@ export default class Form extends Component {
   render() {
     return (
       <React.Fragment>
-        <Alert color="warning" isOpen={this.state.error}>
+        <Alert
+          color="warning"
+          isOpen={this.state.error}
+          toggle={this.onDismiss}
+        >
           <span className="location text-info" onClick={this.handleLocation}>
             Current Location <MyLocation />
           </span>

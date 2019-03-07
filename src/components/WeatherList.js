@@ -1,6 +1,5 @@
 import React from "react";
 import Moment from "react-moment";
-import PropTypes from "prop-types";
 import "../css/Weather.css";
 
 export default function WeatherList(props) {
@@ -23,8 +22,3 @@ export default function WeatherList(props) {
     </div>
   );
 }
-
-WeatherList.propTypes = {
-  changeWeather: PropTypes.func.isRequired,
-  weatherItem: PropTypes.object.isRequired
-};

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import Fab from "@material-ui/core/Fab";
 import NavigationIcon from "@material-ui/icons/Map";
+import Fab from "@material-ui/core/Fab";
 import "../css/Weather.css";
 
 export default function CurrentWeather(props) {
