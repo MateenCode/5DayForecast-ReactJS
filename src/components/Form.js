@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { InputGroup, InputGroupAddon, Button, Input, Alert } from "reactstrap";
+import { MyLocation } from "@material-ui/icons";
 import axios from "axios";
 import moment from "moment";
 import "../css/Weather.css";
@@ -104,14 +105,9 @@ export default class Form extends Component {
   render() {
     return (
       <React.Fragment>
-        <Alert
-          color="warning"
-          isOpen={this.state.error}
-          toggle={this.onDismiss}
-        >
-          <span className="location" onClick={this.handleLocation}>
-            use current location
-            <i className="fas fa-search-location p-1" />
+        <Alert color="warning" isOpen={this.state.error}>
+          <span className="location text-info" onClick={this.handleLocation}>
+            Current Location <MyLocation />
           </span>
         </Alert>
         <form className="search-bar pt-5" onSubmit={this.handleSubmit}>

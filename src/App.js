@@ -11,7 +11,8 @@ import WeatherList from "./components/WeatherList";
 class App extends React.Component {
   state = {
     currentWeather: {},
-    weatherList: []
+    weatherList: [],
+    viewMap: false
   };
 
   changeWeather = newWeather => {
@@ -46,7 +47,6 @@ class App extends React.Component {
       )
       .then(res => {
         let data = res.data.list;
-        console.log(data);
         this.setState({
           weatherList: data.filter(eachWeather => {
             let weather = eachWeather.dt_txt.split(" ");
@@ -55,6 +55,12 @@ class App extends React.Component {
         });
       });
   };
+
+  // handleMap = () => {
+  //   this.setState(state => {
+
+  //   })
+  // };
 
   render() {
     if (this.state.weatherList.length === 0) {
@@ -71,7 +77,10 @@ class App extends React.Component {
           <div className="display">
             <Container fluid>
               <Row>
-                <CurrentWeather weather={this.state.currentWeather} />
+                <CurrentWeather
+                  weather={this.state.currentWeather}
+                  handleMap={this.handleMap}
+                />
               </Row>
               <br />
               <Row>

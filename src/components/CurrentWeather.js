@@ -1,5 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
+import Fab from "@material-ui/core/Fab";
+import NavigationIcon from "@material-ui/icons/Map";
 import "../css/Weather.css";
 
 export default function CurrentWeather(props) {
@@ -21,6 +23,14 @@ export default function CurrentWeather(props) {
       <div className="header_key">
         <span className="h2">
           {city}, {country}
+          <Fab
+            className="float-right bg-info text-white"
+            variant="extended"
+            aria-label="Delete"
+            onClick={props.handleMap}
+          >
+            View Map <NavigationIcon />
+          </Fab>
         </span>
         <p className="text-secondary">
           {day}, {date}

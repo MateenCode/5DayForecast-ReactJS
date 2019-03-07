@@ -21,6 +21,5 @@ body {
 
 .location:hover {
   cursor: pointer;
-  color: skyblue;
-  font-size: 1.04em;
+  font-size: 1.06em;
 }
