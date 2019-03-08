@@ -70,6 +70,12 @@ class App extends Component {
       });
   };
 
+  handleLayerName = event => {
+    this.setState({
+      layerName: event.target.id
+    });
+  };
+
   handleMap = () => {
     this.setState({
       viewMap: true
@@ -90,16 +96,24 @@ class App extends Component {
         <Form getWeather={this.getWeather} />
         <div className="display">
           <div className="btn_group">
-            <Button className="" color="dark">
+            <Button onClick={this.handleLayerName} id="clouds_new" color="dark">
               Clouds
             </Button>
-            <Button className="" color="dark">
+            <Button
+              onClick={this.handleLayerName}
+              id="precipitation_new"
+              color="dark"
+            >
               Precipitation
             </Button>
-            <Button className="" color="dark">
+            <Button
+              onClick={this.handleLayerName}
+              id="pressure_new"
+              color="dark"
+            >
               Sea level pressure
             </Button>
-            <Button className="" color="dark">
+            <Button onClick={this.handleLayerName} id="wind_new" color="dark">
               Wind speed
             </Button>
           </div>
