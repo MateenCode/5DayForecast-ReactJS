@@ -20,9 +20,9 @@ export default class Form extends Component {
   };
 
   onDismiss = () => {
-    this.setState({
-      error: !this.state.error
-    });
+    this.setState(state => ({
+      error: !state.error
+    }));
   };
 
   handleSubmit = event => {
@@ -57,21 +57,21 @@ export default class Form extends Component {
         });
       })
       .catch(() => {
-        this.setState({
-          error: !this.state.error
-        });
+        this.setState(state => ({
+          error: !state.error
+        }));
       });
   };
 
   handleLocation = () => {
     let lat = 0;
-    let long = 0;
+    let lng = 0;
     navigator.geolocation.getCurrentPosition(position => {
       lat = position.coords.latitude;
-      long = position.coords.longitude;
+      lng = position.coords.longitude;
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=imperial`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=imperial`
         )
         .then(res => {
           const cityName = res.data.name;
@@ -91,7 +91,11 @@ export default class Form extends Component {
               humidity: res.data.main.humidity,
               wind: Math.round(res.data.wind.speed)
             },
-            cityName
+            cityName,
+            {
+              lat,
+              lng
+            }
           );
         })
         .then(() => {

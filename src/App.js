@@ -1,19 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
+import { Container, Row } from "reactstrap";
+import GoogleMapReact from "google-map-react";
 import axios from "axios";
 import moment from "moment";
-import { Container, Row } from "reactstrap";
 
 // Components
 import Form from "./components/layout/Form";
 import Display from "./components/layout/Display";
 import CurrentWeather from "./components/CurrentWeather";
 import WeatherList from "./components/WeatherList";
+import WeatherMap from "./components/WeatherMap";
 
-class App extends React.Component {
+const API_KEY = "74a0d65d1017ee174d9493121f8fca0b";
+
+class App extends Component {
   state = {
     currentWeather: {},
     weatherList: [],
-    viewMap: false
+    viewMap: false,
+    center: {
+      lat: 0,
+      lng: 0
+    }
   };
 
   changeWeather = newWeather => {
@@ -35,12 +43,14 @@ class App extends React.Component {
     }));
   };
 
-  getWeather = (weather, city) => {
-    const API_KEY = "74a0d65d1017ee174d9493121f8fca0b";
+  getWeather = (weather, city, coords) => {
     const country = "US";
-
     this.setState({
-      currentWeather: weather
+      currentWeather: weather,
+      center: {
+        lat: coords.lat,
+        lng: coords.lng
+      }
     });
     axios
       .get(
@@ -74,7 +84,21 @@ class App extends React.Component {
     ) : viewMap === true ? (
       <div className="App">
         <Form getWeather={this.getWeather} />
-        <div className="display" />
+        <div className="display">
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: "AIzaSyDog654Ev-4EBccDN_cuPBVAXM1qWTYKxk"
+            }}
+            defaultCenter={this.state.center}
+            defaultZoom={11}
+          >
+            <WeatherMap
+              lat={34.170783199999995}
+              lng={-118.3971237}
+              text={"Kreyser Avrora"}
+            />
+          </GoogleMapReact>
+        </div>
       </div>
     ) : (
       <div className="App">

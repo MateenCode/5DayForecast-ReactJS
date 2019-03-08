@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function WeatherMap() {
-  return <div>map</div>;
+export default function WeatherMap(props) {
+  return <div>{props.text}</div>;
 }
