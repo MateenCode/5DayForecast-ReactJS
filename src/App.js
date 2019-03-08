@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Container, Row } from "reactstrap";
-import GoogleMapReact from "google-map-react";
+import { Container, Row, Button } from "reactstrap";
+import { Map, Tooltip, CircleMarker } from "react-leaflet";
 import axios from "axios";
 import moment from "moment";
 
@@ -18,6 +18,8 @@ class App extends Component {
     currentWeather: {},
     weatherList: [],
     viewMap: false,
+    layerName: "wind_new",
+    cityName: "",
     center: {
       lat: 0,
       lng: 0
@@ -47,6 +49,7 @@ class App extends Component {
     const country = "US";
     this.setState({
       currentWeather: weather,
+      cityName: city,
       center: {
         lat: coords.lat,
         lng: coords.lng
@@ -75,6 +78,7 @@ class App extends Component {
 
   render() {
     const { weatherList, viewMap, currentWeather } = this.state;
+    const position = [this.state.center.lat, this.state.center.lng];
 
     return weatherList.length === 0 ? (
       <div className="App">
@@ -85,19 +89,26 @@ class App extends Component {
       <div className="App">
         <Form getWeather={this.getWeather} />
         <div className="display">
-          <GoogleMapReact
-            bootstrapURLKeys={{
-              key: "AIzaSyDog654Ev-4EBccDN_cuPBVAXM1qWTYKxk"
-            }}
-            defaultCenter={this.state.center}
-            defaultZoom={11}
-          >
-            <WeatherMap
-              lat={34.170783199999995}
-              lng={-118.3971237}
-              text={"Kreyser Avrora"}
-            />
-          </GoogleMapReact>
+          <div className="btn_group">
+            <Button className="" color="dark">
+              Clouds
+            </Button>
+            <Button className="" color="dark">
+              Precipitation
+            </Button>
+            <Button className="" color="dark">
+              Sea level pressure
+            </Button>
+            <Button className="" color="dark">
+              Wind speed
+            </Button>
+          </div>
+          <Map center={position} zoom={4} className="map_key">
+            <WeatherMap layerName={this.state.layerName} />
+            <CircleMarker center={position} color="red" radius={20}>
+              <Tooltip>{this.state.cityName}</Tooltip>
+            </CircleMarker>
+          </Map>
         </div>
       </div>
     ) : (
