@@ -18,7 +18,7 @@ class App extends Component {
     currentWeather: {},
     weatherList: [],
     viewMap: false,
-    layerName: "wind_new",
+    layerName: "temp_new",
     cityName: "",
     center: {
       lat: 0,
