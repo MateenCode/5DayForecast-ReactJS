@@ -1,3 +1,6 @@
 /node_modules
 package-lock.json 
-build
+src/*
+public/*
+build/static/css/*.map
+build/static/js/*.map
